@@ -1,0 +1,11 @@
+pandas
+transformers[torch]
+torch
+spacy
+pdfplumber
+python-dotenv
+flask
+pydantic[email]
+huggingface_hub[hf_xet]
+scikit-learn
+streamlit

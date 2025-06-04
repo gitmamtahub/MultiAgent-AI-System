@@ -17,25 +17,18 @@ This project is a multi-agent AI system that processes **JSON**, **Email**, and 
 ---
 
 ## 🏗️ System Architecture
-
-      +---------------------+
-      |   User Input (UI)   |
-      +----------+----------+
-                 |
-      +----------v----------+
-      |   Classifier Agent  |
-      +----+-----------+----+-------------------+
-           |           |                        |
- +---------v--+    +---v------------+   +-------v-----------------+
+                  +---------------------+
+                  |   User Input (UI)   |
+                  +----------|----------+
+                  +----------v----------+
+                  |   Classifier Agent  |      
+                  +---------------------+       
+ +-------------+    +---------------+   +-------------------------+
  | Email Agent |    |  JSON Agent   |   | Plaintext/PDF Agent     |
  +-------------+    +---------------+   +-------------------------+
-           \             /              /
-            \           /              /
-             +---------v--------+    /
-             |  Shared Memory   |___/
-             +------------------+
-
----
+                   +--------------------+
+                   |   Shared Memoey    |
+                   +--------------------+
 
 User Input → Detected as Email + Intent: RFQ → Routed to Email Agent
 → Extracted entities + sender + urgency → Logged in Shared Memory
@@ -85,14 +78,23 @@ Trained intents (editable in intent_classifier.py):
 │   ├── classifier_agent.py
 │   ├── email_agent.py
 │   ├── json_agent.py
+│   ├── plaintext_agent.py
 │   └── intent_classifier.py
 ├── memory/
 │   └── shared_memory.py
 ├── model/                  # Trained BERT model
-├── data/
+│   ├── config.json
+│   ├── model.safetensors   # very large size imp file cannot be push to github
+│   ├── special_tokens_map.json
+│   ├── tokenizer.json
+│   ├── tokenizer_config.json
+│   └── vocab.txt
+├── train/                  # not included as we need only inferences for this application
+│   ├── train.py            # BERT trained for this purpose
 │   └── data.csv            # Training data for intent classification
 ├── utils/
 │   └── file_utils.py       # Format detection
+├── label_encoder.pkl       # can't be used with Auttokenizer and AutoModels so not on github
 ├── requirements.txt
 └── README.md
 

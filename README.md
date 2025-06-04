@@ -108,4 +108,4 @@ Export memory logs as downloadable reports
 This is open-source project
 
 🙋‍♂️ Author
-Made with ❤️ by [Mamta Khatri]
+[Mamta Khatri]

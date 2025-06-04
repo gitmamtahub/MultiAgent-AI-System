@@ -17,10 +17,10 @@ This project is a multi-agent AI system that processes **JSON**, **Email**, and 
 ---
 
 ## 🏗️ System Architecture
-                      **User Input (UI)** 
-                      **Classifier Agent**        
-          **Email Agent    JSON Agent     Plaintext/PDF Agent**   
-                        **Shared Memoey**
+                      User Input (UI)
+                      Classifier Agent        
+          Email Agent    JSON Agent     Plaintext/PDF Agent
+                        Shared Memoey
 
 User Input → Detected as Email + Intent: RFQ → Routed to Email Agent
 → Extracted entities + sender + urgency → Logged in Shared Memory
